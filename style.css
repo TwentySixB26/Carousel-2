@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    min-height: 100vh;
+    /* background-color: bisque; */
+    /* padding: 0 35px; */
+}
+
+.wrapper{
+    max-width: 928px;
+    width: 100%;
+    margin:100px auto;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    position: relative;
+}
+
+.wrapper #back, .wrapper #next {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.wrapper #back {
+    left: -7%;
+}
+.wrapper #next{
+    right: -7%;
+}
+
+.wrapper .carousel{
+    display: grid;
+    grid-auto-flow: column;
+    gap: 16px;
+    grid-auto-columns: 220px;
+    scroll-behavior: smooth;
+    /* overflow: hidden; */
+    overflow-x: auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width: none;
+}
+
+.wrapper .carousel .card {
+    list-style: none;
+    /* background: #fff; */
+    border-radius: 8px;
+    text-align: center;
+    /* transition: ease 0.5s; */
+    /* scroll-snap-align: start; */
+
+}
+
+.wrapper .carousel.no-transition {
+    scroll-behavior: auto;
+}
+
+.wrapper .carousel.dragging {
+    /* scroll-snap-type: none; */
+    scroll-behavior:auto;
+}
+
+.wrapper .carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+}
+
+.wrapper .carousel .card img {
+    width: 100%;
+    object-fit: cover;
+    /* filter: grayscale(100%); */
+    transition: ease 0.5s;
+
+}
+
+/* .wrapper .carousel .card:hover img {
+    filter: grayscale(0%);
+} */
+
+/* .wrapper .carousel .card:hover {
+    transform: scale(1.1);
+} */
+
+
+
+@media (max-width: 992px) {
+    .wrapper{
+        max-width: 632px;
+    }
+    .wrapper .carousel{
+        grid-auto-columns: 200px;
+    }
+    .wrapper #back {
+        left: -10%;
+    }
+    .wrapper #next{
+        right: -10%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .wrapper{
+        max-width: 542px;
+    }
+    .wrapper .carousel{
+        grid-auto-columns: 170px;
+    }
+    .wrapper #back {
+        left: -10%;
+    }
+    .wrapper #next{
+        right: -10%;
+    }
+}
+
+@media (max-width: 576px) {
+    .wrapper{
+        max-width: 256px;
+    }
+    .wrapper .carousel{
+        grid-auto-columns: 120px;
+    }
+    .wrapper #back {
+        left: -20%;
+    }
+    .wrapper #next{
+        right: -20%;
+    }
+}
+
+
